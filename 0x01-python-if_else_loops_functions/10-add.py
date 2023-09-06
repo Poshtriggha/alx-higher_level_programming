@@ -1,9 +1,7 @@
-def add(a, b):
-    result = a + b
-    return result
+#!/usr/bin/python3
+# 10-add.py
 
-# Example usage:
-num1 = 5
-num2 = 7
-sum_result = add(num1, num2)
-print(f"The sum of {num1} and {num2} is {sum_result}")
+
+def add(a, b):
+    """Return the addition of a and b."""
+    return (a + b)
