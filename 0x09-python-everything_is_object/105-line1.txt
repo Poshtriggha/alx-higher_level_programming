@@ -1,0 +1,28 @@
+In CPython, small integers in the range from -5 to 256 are pre-allocated and shared across the entire program. These are referred to as NSMALLPOSINTS and NSMALLNEGINTS.
+
+Since print("I") and print("Love") do not involve any integer operations or assignments, no new integer objects are created. The small integer objects for 0 and 1 (used internally by Python for various purposes) are created at startup and persist throughout the execution of the program.
+
+Therefore, before the execution of line 2, there are 2 small integer objects (0 and 1) in memory.
+
+Optional Blog Post:
+
+Title: "The Magic of Small Integers in Python: NSMALLPOSINTS and NSMALLNEGINTS"
+
+Introduction:
+
+Python is known for its simplicity and readability, but under the hood, it also leverages clever optimizations to enhance performance. One such optimization involves small integer objects, which are integers within a specific range. In this blog post, we'll delve into the world of small integers and explore how they contribute to Python's efficiency.
+
+The NSMALLPOSINTS and NSMALLNEGINTS:
+
+CPython, the default Python implementation, pre-allocates a range of small integer objects at startup. These include integers from -5 to 256, which are commonly used in everyday programming. These pre-allocated integers are stored in two arrays: NSMALLPOSINTS and NSMALLNEGINTS.
+
+Why does this matter?
+
+This optimization offers several benefits:
+
+Memory Efficiency:
+By pre-allocating these frequently used integers, Python saves memory that would otherwise be spent creating and managing separate integer objects for each occurrence of these values.
+Faster Execution:
+Since these integers are pre-allocated, they can be quickly accessed without the need for dynamic memory allocation, resulting in faster execution times for operations involving these values.
+Improved Performance in Loops:
+Loops that iterate within the range of -5 to 256 benefit greatly from this optimization. The integers used as loop counters fall within this range, resulting in faster loop execution.
